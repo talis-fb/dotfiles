@@ -15,21 +15,29 @@
   # release notes.
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    pkgs.nodejs_18
+  home.packages = with pkgs; [
+    nodejs_18
 
-    pkgs.rustc
-    pkgs.cargo
+    rustc
+    cargo
 
-    pkgs.elixir
+    go
 
-    pkgs.tmux
-    pkgs.tmuxp
+    elixir
 
+    tmux
+    tmuxp
+
+    neovim
+    vscode
+    ranger
+
+    brave
+
+    lazydocker
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -50,15 +58,15 @@
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
-    ".config/kitty".source = ./kitty;
-    # ".config/kitty/theme.conf".source = kitty/theme.conf;
 
-    # 
-    ".config/nvim".source = builtins.fetchGit "https://github.com/NvChad/NvChad";
-    # ".config/nvima/lua/custom".source = ./nvchad;
 
-    ".tmux/plugins/tpm".source =  builtins.fetchGit "https://github.com/tmux-plugins/tpm";
-    ".tmux.conf".source = tmux/.tmux.conf;
+    # ".config/kitty".source = ./kitty;
+
+    # ".config/nvim".source = builtins.fetchGit "https://github.com/NvChad/NvChad";
+
+    # ".tmux/plugins/tpm".source =  builtins.fetchGit "https://github.com/tmux-plugins/tpm";
+    # ".tmux.conf".source = tmux/.tmux.conf;
+
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
@@ -78,7 +86,7 @@
   #
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
-    EDITOR = "nvim";
+    # EDITOR = "nvim";
   };
 
   # Let Home Manager install and manage itself.

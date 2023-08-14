@@ -1,0 +1,69 @@
+session_name: WISEFI
+start_directory: "${HOME}/work/wisefi"
+windows:
+  - window_name: Backend
+    start_directory: backend
+    panes:
+      - shell_command:
+        - docker logs -f service-access-api
+
+  - window_name: HEFESTO
+    panes:
+      - shell_command:
+        - docker logs -f service-hefesto-api
+
+  - window_name: Events
+    start_directory: services
+    layout: even-horizontal
+    panes:
+      - shell_command:
+        - docker logs -f service-event_worker
+      - shell_command:
+        - docker logs -f service-connection_logs-api
+
+  - window_name: Devices
+    start_directory: services
+    panes:
+      - shell_command:
+        - docker logs -f service-devices-api
+
+  - window_name: Hermes
+    start_directory: services
+    panes:
+      - shell_command:
+        - docker logs -f service-hermes
+
+  - window_name: Config
+    layout: even-horizontal
+    start_directory: services
+    panes:
+      - shell_command:
+        - docker logs -f service-configuration
+
+  - window_name: Health/Statistics
+    start_directory: services
+    panes:
+      - shell_command:
+        - docker logs -f service-health-api
+      - shell_command:
+        - docker logs -f service-statistics-api
+
+  - window_name: Notify/Counters_worker
+    layout: even-horizontal
+    panes:
+      - shell_command:
+        - docker logs -f service-notify-api
+      - shell_command:
+        - docker logs -f service-counters_worker
+
+  - window_name: Atlas
+    start_directory: services
+    panes:
+      - shell_command:
+        - docker logs -f service-atlas
+
+  - window_name: Kong
+    start_directory: utils
+    panes:
+      - shell_command:
+        - docker logs -f manager-kong

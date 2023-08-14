@@ -1,0 +1,22 @@
+session_name: DEV
+start_directory: "${HOME}/work/wisefi"
+windows:
+  - window_name: vim Devices
+    start_directory: services
+    panes:
+      - shell_command:
+        - cd devices
+
+  - window_name: Devices
+    start_directory: services
+    panes:
+      - shell_command:
+        - cd devices
+        - bash start.sh
+
+  - window_name: Atlas
+    start_directory: services
+    panes:
+      - shell_command:
+        - cd atlas
+        - bash start.sh

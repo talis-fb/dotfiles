@@ -1,0 +1,90 @@
+session_name: WISEFI
+start_directory: "${HOME}/work/wisefi"
+windows:
+  - window_name: Devices
+    start_directory: services
+    panes:
+      - shell_command:
+        - cd devices
+        - bash start.sh
+
+  - window_name: Hermes
+    start_directory: services
+    panes:
+      - shell_command:
+        - cd hermes
+        - bash start.sh
+
+  - window_name: Config
+    layout: even-horizontal
+    start_directory: services
+    panes:
+      - shell_command:
+        - cd configuration
+        - bash start.sh
+
+  - window_name: Atlas
+    start_directory: services
+    panes:
+      - shell_command:
+        - cd atlas
+        - bash start.sh
+
+  - window_name: Events
+    start_directory: services
+    layout: even-horizontal
+    panes:
+      - shell_command:
+        - cd events/events_worker
+        - bash start.sh
+      - shell_command:
+        - cd events/connection_logs_api
+        - bash start.sh
+
+  - window_name: Health/Statistics
+    start_directory: services
+    panes:
+      - shell_command:
+        - cd statistics
+        - bash start.sh
+      - shell_command:
+        - cd health
+        - bash start.sh
+
+  - window_name: Notify/Counters_worker
+    layout: even-horizontal
+    panes:
+      - shell_command:
+        - cd notify-service
+        - bash start.sh
+      - shell_command:
+        - cd services/counters_worker
+        - bash start.sh
+
+  - window_name: Backend
+    start_directory: backend
+    panes:
+      - shell_command:
+        - bash start.sh
+
+  - window_name: Frontend/HEFESTO
+    panes:
+      - shell_command:
+        - cd frontend
+        - nvm use v16.15.1
+        - yarn start
+      - shell_command:
+        - cd services/hefesto
+        - nvm use v16.15.1
+        - yarn dev
+
+  - window_name: Kong
+    start_directory: utils
+    panes:
+      - shell_command:
+        - cd kong
+        - bash update_ip.sh
+        - bash start.sh
+
+
+
