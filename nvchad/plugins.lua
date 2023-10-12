@@ -54,6 +54,16 @@ local plugins = {
   },
 
   {
+    "michaeljsmith/vim-indent-object",
+    lazy = false,
+    enabled = true,
+    -- "TimUntersberger/neogit",
+    -- init = function()
+    --   require("neogit").setup()
+    -- end,
+  },
+
+  {
     "TimUntersberger/neogit",
     init = function()
       require("neogit").setup()
@@ -115,8 +125,16 @@ local plugins = {
         -- Configuration here, or leave empty to use defaults
       })
     end
+  },
+  {
+    "github/copilot.vim",
+    -- version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    -- config = function()
+    --   require("nvim-surround").setup({
+    --     -- Configuration here, or leave empty to use defaults
+    --   })
+    -- end
   }
-
 }
 
 -- require("telescope").load_extension("")

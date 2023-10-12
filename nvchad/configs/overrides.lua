@@ -18,6 +18,7 @@ M.treesitter = {
     "java",
     "yaml",
     "dockerfile",
+    "go",
   },
   indent = {
     enable = true,

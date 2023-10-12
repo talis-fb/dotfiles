@@ -3,10 +3,10 @@ local M = {}
 
 M.general = {
   n = {
-    [";"] = { ":", "enter command mode", opts = { nowait = true } },
-    ["Q"] = {function () require("nvchad_ui.tabufline").close_buffer() end, "close buffer"},
+    -- [";"] = { ":", "enter command mode", opts = { nowait = true } },
+    ["Q"] = {function () require("nvchad.tabufline").close_buffer() end, "close buffer"},
     ["<C-p>"] = { ":Telescope git_files<CR>", "FIle browser", opts = { nowait = true } },
-    ["<C-z>"] = { ":Telescope file_browser<CR> <ESC>", "FIle browser", opts = { nowait = true } },
+    ["<C-z>"] = { ":Telescope file_browser<CR><ESC>", "FIle browser", opts = { nowait = true } },
     ["<Leader>ff"] = { ":Telescope find_files<CR>", "FIle browser", opts = { nowait = true } },
 
     -- Git
