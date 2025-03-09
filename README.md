@@ -1,0 +1,5 @@
+# Setup
+
+```
+stow --no-folding .
+```
