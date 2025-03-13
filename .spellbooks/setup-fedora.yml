@@ -1,0 +1,40 @@
+---
+- name: Init the magic...
+
+  # Setup to only target the machine executing it
+  hosts: localhost
+  connection: local
+
+  tasks:
+    - name: Update the system
+      become: true
+      dnf:
+        name: '*'
+        state: latest
+
+    - name: Install Essentials
+      become: true
+      dnf:
+        name:
+          - git
+          - fish
+          - neovim
+          - distrobox
+          - zoxide
+          - podman
+          - stow
+          - tmux
+          - fzf
+          - fd-find
+          - bat
+          - exa
+          - tldr
+          - neofetch
+          - xxd
+          - xclip
+          - nmap
+          - htop
+          # - gnome-tweaks
+          # - gnome-tweak-tool
+          # - gnome-shell-extensions
+        state: present

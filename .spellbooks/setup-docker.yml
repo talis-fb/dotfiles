@@ -1,0 +1,10 @@
+---
+- name: Init the magic...
+
+  # Setup to only target the machine executing it
+  hosts: localhost
+  connection: local
+
+  roles:
+    - role: geerlingguy.docker
+      become: true
